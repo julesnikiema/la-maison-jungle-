@@ -1,4 +1,6 @@
 import { plantList } from "../datas/PlantList";
+import PlantItem from './PlantItem'
+
 import '../Styles/ShoppingList.css';
 
 
@@ -23,23 +25,21 @@ function ShoppingList() {
 			</ul>
              {/* La seconde liste (ul.lmj-plant-list) affiche toutes les plantes de plantList avec leurs noms et, 
         le cas échéant, l'indication de promotion spéciale. */}
-			<ul className='lmj-plant-list'>
-
-            {/* plantList.map((plant) => (...)): C'est une méthode JavaScript qui itère sur chaque élément de plantList 
-            et retourne un nouveau tableau avec des éléments modifiés ou transformés. */}
-				{plantList.map((plant) => (
-					<li key={plant.id} className='lmj-plant-item'>
-						{plant.name}
-                        {plant.isSpecialOffer && <div className='lmj-sales'>Soldes</div>} 
-                
-					</li>
+        <ul className='lmj-plant-list'>
+				{plantList.map(({ id, cover, name, water, light }) => (
+					<PlantItem
+						id={id}
+						cover={cover}
+						name={name}
+						water={water}
+						light={light}
+					/>
 				))}
 			</ul>
 		</div>
 	)
 }
 
-// {plant.isSpecialOffer && <div className='lmj-sales'>Soldes</div>} : Cette expression vérifie si plant.isSpecialOffer est vrai (true). Si c'est le cas, elle affiche un élément <div> avec la classe CSS lmj-sales et le texte "Soldes". 
-// Sinon, cet élément n'est pas rendu du tout.
+
 
 export default ShoppingList
