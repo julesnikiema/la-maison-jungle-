@@ -1,7 +1,24 @@
-import Sun from '../assets/sun.svg'
-import Water from '../assets/water.svg'
+import Sun from '../Assets/sun.svg'
+import Water from '../Assets/water.svg'
 
 
+
+const quantityLabel = {
+	1: 'peu',
+	2: 'modérément',
+	3: 'beaucoup'
+}
+
+
+
+function handleClik(scaleValue, careType)
+{
+    alert(
+        `Cette plante requiert ${quantityLabel[scaleValue]} ${
+            careType === 'light' ? 'de lumière' : "d'arrosage"
+        }`
+    )
+}
 
 // La fonction CareScale prend deux propriétés (props) en entrée : scaleValue et careType. 
 // Elle utilise ces propriétés pour générer une série 
@@ -20,7 +37,7 @@ function CareScale({ scaleValue, careType }) {
     )
 	return (
 
-		<div>
+		<div  onClick={()=>handleClik(scaleValue, careType)} >
         {/* range.map : La méthode map est utilisée pour itérer sur chaque élément du tableau range (rangeElem). */}
 			{range.map((rangeElem) =>
 				scaleValue >= rangeElem ? (

@@ -1,6 +1,7 @@
 import Banner from './Banner'
 import ShoppingList from './ShoppingList';
 import logo from '../Assets/logo.png'
+import Footer from './Footer';
 
 function App() {
   return ( 
@@ -10,6 +11,7 @@ function App() {
 				<h1 className='lmj-title'>La maison jungle</h1>
 			</Banner>
       <ShoppingList/>
+      <Footer/>
     </div>
   )
 
